@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block page_title %}
+Detalle de Persona - {{person.name}}
+{% endblock page_title %} 
+
+{% block page_content %}
+
+<div class="col-xl-12 col-sm-12 mb-xl-0">
+    <div class="card mt-6">
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-sm mb-0 text-uppercase font-weight-bold">Datos de la Persona</h4>
+                    <hr>
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Nombre</label> {{person.name}}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Email</label> {{person.email}}
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a  href="{% url 'persons:person-update' person.id %}" class='btn-primary btn btn-sm pull-right' data-toggle="tooltip" data-original-title="Edit user">
+                            Editar Datos de la Persona
+                            </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock page_content %}

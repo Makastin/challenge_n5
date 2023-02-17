@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block page_title %}
+Crear Infracciones
+{% endblock page_title %} 
+
+{% block page_content %}
+
+<div class="col-xl-12 col-sm-12 mb-xl-0">
+    <div class="card mt-6">
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-sm mb-0 text-uppercase font-weight-bold">Crear Infracciones</h4>
+                    <hr>
+                    <form method="post"> {% csrf_token %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Vehiculo</label> {{form.vehicle}}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Oficial Asignado</label> {{form.assigned_officer}}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Comentario de la Infraccion</label> {{form.comment}}
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn bg-gradient-primary ">Crear Infraccion</button>
+                        </div>
+                        <div>
+                            {% if form.errors %} {% for field in form %} {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                            {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                            {% endfor %} {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock page_content %}

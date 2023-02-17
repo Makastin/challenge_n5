@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block page_title %}
+Detalles Oficial
+{% endblock page_title %} 
+
+{% block page_content %}
+
+<div class="col-xl-12 col-sm-12 mb-xl-0">
+    <div class="card mt-6">
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-sm mb-0 text-uppercase font-weight-bold">Detalles del Oficial</h4>
+                    <hr>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Nombre del Oficial: </label> {{officer.officer_name}}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Numero de placa del Oficial: </label> {{officer.officer_number}}
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a  href="{% url 'officers:officer-update' officer.id %}" class='btn-primary btn btn-sm pull-right' data-toggle="tooltip" data-original-title="Edit user">
+                                Editar informacion del Oficial
+                            </a>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock page_content %}

@@ -1,0 +1,1 @@
+hola {{client}}, se te ha otorgado un credito de tipo {{credit_type}}, emitido por el banco {{bank}}, saludos de parte del equipo de TU CREDITO

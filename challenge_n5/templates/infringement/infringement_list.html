@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block page_title %}
+Lista de Infracciones
+{% endblock page_title %} 
+
+{% block page_content %}
+
+<div class="row">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6>Lista de Infracciones</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Persona</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Numero de Placa</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Oficial Asignado</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Infraccion</th>
+                  <th class="text-secondary opacity-7"></th>
+                </tr>
+              </thead>
+              <tbody>   
+                  
+                {% if infringement_list %} 
+                {% for infringement in infringement_list  %}
+                <tr>
+                <td>
+                    <div class="d-flex px-2 py-1">
+                    <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">{{infringement.vehicle.person}}</h6>
+                        <p class="text-xs text-secondary mb-0">{{infringement.vehicle.person.email}}</p>
+                    </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="text-xs font-weight-bold mb-0">{{infringement.vehicle.plate}}</p>
+                </td>
+                <td>
+                  <div class="d-flex px-2 py-1">
+                  <div class="d-flex flex-column justify-content-center">
+                      <h6 class="mb-0 text-sm">{{infringement.assigned_officer}}</h6>
+                      <p class="text-xs text-secondary mb-0">{{infringement.assigned_officer.officer_number}}</p>
+                  </div>
+                  </div>
+              </td>
+                <td class="align-middle text-center">
+                    <p class="text-xs font-weight-bold mb-0">{{infringement.infringement_id}}</p>
+                </td>
+                <td class="align-middle">
+                    <a  href="{% url 'infringements:infringement-detail' infringement.id %}" class='btn-primary btn btn-sm pull-right' data-toggle="tooltip" data-original-title="Edit user">
+                      View
+                    </a>
+                </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+{% endblock page_content %}
