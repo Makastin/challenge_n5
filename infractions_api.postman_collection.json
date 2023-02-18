@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "e59fee29-b524-4091-b417-ff22ba7df32c",
+		"name": "infractions_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21463832"
+	},
+	"item": [
+		{
+			"name": "get_token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_service}}/api/v1.0/token/",
+					"host": [
+						"{{local_service}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_infringement",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local_service",
+			"value": "192.168.0.2:8000",
+			"type": "string"
+		}
+	]
+}
